@@ -4,6 +4,8 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
+
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -19,6 +21,10 @@ var api = new ParseServer({
   clientKey:process.env.CLIENT_KEY || '2QzpqdkUFXqv39WSfJAcPqFKAJprS4XTGJI93rfl', //Add you client key here. Keep it secret!,
   fileKey:process.env.FILE_KEY || '2920f9be-c259-43d6-bb6c-e163196da4ef', // Add you file key here,
   serverURL: process.env.SERVER_URL || 'https://wellkeptbeauty.herokuapp.com/parse',  // Don't forget to change to https if needed
+   emailAdapter: SimpleSendGridAdapter({
+    apiKey: 'yEPxzswEQwOqreBzFll0VA',
+    fromAddress: 'noreply@wellkeptbeauty.com',
+  }),
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
