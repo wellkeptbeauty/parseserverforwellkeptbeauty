@@ -4,6 +4,7 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var app = express();
 var SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
 
 
