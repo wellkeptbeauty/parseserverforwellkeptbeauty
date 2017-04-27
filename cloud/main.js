@@ -2,6 +2,21 @@
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
+
+
+Parse.Cloud.define("test", function(request, response) {
+    var query = new Parse.Query("MyCollection");
+
+    query.find({
+        success: function(results) {
+            response.success(results);
+        }, error: function(theerror) {
+            response.error("user lookup failed: %@", error);
+            console.log(theerror);
+        }
+    }); 
+});
+
 Parse.Cloud.define('All', function(request, status)  
 {
    // res.success('ALL');
