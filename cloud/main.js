@@ -7,25 +7,27 @@ Parse.Cloud.define('All', function(request, status)
   var query=new Parse.Query("MyCollection");
    query.find().then(function (res) 
 {
-for (var i=0; i< res.length;i++){
-var expirydate=res[i].get('PExpirationDate');
+ console.log("after query is "+res);
+
+// for (var i=0; i< res.length;i++){
+// var expirydate=res[i].get('PExpirationDate');
  
-var inputDate = new Date(expirydate);
-var todaysDate = new Date();
+// var inputDate = new Date(expirydate);
+// var todaysDate = new Date();
 
-if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
-{
-console.log("object id is"+res[i].get('_p_PurchasedUserID'));
- // alert("equal")
+// if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
+// {
+// console.log("object id is"+res[i].get('_p_PurchasedUserID'));
+//  // alert("equal")
 
-//res.success("object id is"+JSON.stringify(result));
-}
-else
-{
+// //res.success("object id is"+JSON.stringify(result));
+// }
+// else
+// {
 
-//alert(" not equal")
-}
-}
+// //alert(" not equal")
+// }
+// }
  status.success("final result " + results);
         
       
