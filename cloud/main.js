@@ -10,10 +10,10 @@ Parse.Cloud.define("averageStars", function(request, response) {
   query.find({
     success: function(results) {
       
-      for (var i = 0; i < results.length; ++i) {
-        string = results[i].get("PExpirationDate");
-      }
-      response.success(string);
+//       for (var i = 0; i < results.length; ++i) {
+//         string = results[i].get("PExpirationDate");
+//       }
+      response.success(results);
     },
     error: function() {
       response.error("movie lookup failed");
