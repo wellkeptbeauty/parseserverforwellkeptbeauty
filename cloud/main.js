@@ -16,12 +16,14 @@ var todaysDate = new Date();
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
 console.log("object id is"+res[i].get('_p_PurchasedUserID'));
-res.success("object id is"+JSON.stringify(result));
+ // alert("equal")
+
+//res.success("object id is"+JSON.stringify(result));
 }
 else
 {
 
-alert(" not equal")
+//alert(" not equal")
 }
 }
  status.success("final result " + results);
