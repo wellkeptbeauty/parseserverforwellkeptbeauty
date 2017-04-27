@@ -4,18 +4,27 @@ Parse.Cloud.define('hello', function(req, res) {
 });
 
 
-Parse.Cloud.define("test", function(request, response) {
-    var query = new Parse.Query("MyCollection");
+Parse.Cloud.define('people', function(request, status)  
+{
+   
+   
 
-    query.find({
-        success: function(results) {
-            response.success(results);
-        }, error: function(theerror) {
-            response.error("user lookup failed: %@", error);
-            console.log(theerror);
-        }
-    }); 
-});
+   
+  var query=new Parse.Query("MyCollection");
+     
+
+ query.find().then(function (res) 
+    {
+     console.log("after query is "+res);
+       
+   
+  status.success("final result " + res);
+   
+    }, function (error) {
+      status.error(error);
+         
+    });
+ });
 
 Parse.Cloud.define('All', function(request, status)  
 {
