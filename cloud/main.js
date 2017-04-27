@@ -4,10 +4,12 @@ Parse.Cloud.define('hello', function(req, res) {
 });
 Parse.Cloud.define('All', function(request, status)  
 {
-  var query=new Parse.Query("MyCollection");
-   query.find().then(function (res) 
-{
- console.log("after query is "+res);
+    res.success('ALL');
+
+//   var query=new Parse.Query("MyCollection");
+//    query.find().then(function (res) 
+// {
+//  console.log("after query is "+res);
 
 // for (var i=0; i< res.length;i++){
 // var expirydate=res[i].get('PExpirationDate');
@@ -28,12 +30,12 @@ Parse.Cloud.define('All', function(request, status)
 // //alert(" not equal")
 // }
 // }
- status.success("final result " + results);
+//  status.success("final result " + results);
         
       
    
-    }, function queryFailed(reason) {
-      status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
+//     }, function queryFailed(reason) {
+//       status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
          
-    });
+//     });
 });
