@@ -16,7 +16,7 @@ var todaysDate = new Date();
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
 
-res.success("object id is"+res[i].get('PurchasedUserID'));
+res.success("object id is"+res[i].get('_p_PurchasedUserID'));
 }
 else
 {
