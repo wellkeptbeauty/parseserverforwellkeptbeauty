@@ -5,7 +5,10 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 Parse.Cloud.define("averageStars", function(request, response) {
-  var query = new Parse.Query("MyCollection");
+  
+  var GameScore = Parse.Object.extend("MyCollection");
+
+  var query = new Parse.Query(GameScore);
   
   query.find({
     success: function(results) {
