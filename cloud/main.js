@@ -3,7 +3,28 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
 
-
+Parse.Cloud.job("findAll", function(request, status) {
+   
+   
+    var query = new Parse.Query(Parse.User);
+ Parse.Cloud.useMasterKey()
+  var result = [];
+var results = "Retrieved all Posts:\n";
+     
+   
+    query.find().then(function (res) 
+    {
+   
+      
+      status.success("final result " + results);
+        
+      
+   
+    }, function queryFailed(reason) {
+      status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
+         
+    });
+ });
 
 
 Parse.Cloud.define('All', function(request, status)  
