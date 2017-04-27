@@ -3,7 +3,7 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
 
-Parse.Cloud.job('findAll', function(request, status) {
+Parse.Cloud.define('findAll', function(request, status) {
    
    
     var query = new Parse.Query(Parse.User);
