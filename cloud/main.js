@@ -21,8 +21,7 @@ Parse.Cloud.define("All", function(request, response) {
     },
     error: function() {
       response.error("movie lookup failed");
-    }
-  });
+    });
 });
 
 Parse.Cloud.define('All', function(request, status)  
