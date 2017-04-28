@@ -2,6 +2,19 @@
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
+Parse.Cloud.define("All", function(request, response) {
+  var query = new Parse.Query("MyCollection");
+ 
+  query.find({
+    success: function(results) {
+     
+      response.success(results.length);
+    },
+    error: function() {
+      response.error("movie lookup failed");
+    }
+  });
+});
 
 // Parse.Cloud.define('All', function(request, status)  
 // {
