@@ -25,7 +25,7 @@ Parse.Cloud.define("Allobjects", function(request, response) {
       console.log(JSON.parse(results)+"parse3");
         response.success(JSON.parse(results));
     }, function (error) {
-      console.log("karthik"+error);
+      console.log("karthik"+JSON.stringify(error));
         response.error(error);
     });
 });
