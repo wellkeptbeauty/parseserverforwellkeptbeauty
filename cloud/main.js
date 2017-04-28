@@ -20,7 +20,7 @@ Parse.Cloud.define("Allobjects", function(request, response) {
     var userQuery = new Parse.Query("MyCollection");
    
     userQuery.find().then(function (results) {
-        response.success(results);
+        response.success(JSON.stringify(results));
     }, function (error) {
         response.error(error);
     });
