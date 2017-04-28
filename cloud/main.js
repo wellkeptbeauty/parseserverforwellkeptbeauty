@@ -5,22 +5,24 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 
-Parse.Cloud.define("All", function(request, response) {
-  var query = new Parse.Query("MyCollection");
- 
-  query.find({
-  //console.log("Results: " + results);
+Parse.Cloud.define("TopTwo", function(request, response) {
+    var query = new Parse.Query("MyCollection");
+   
+    query.find({
+        success: function(results) {
+            console.error("Results: " + results);
 
             var list = [];
             for (i = 0; i < results.length; i++) {
-                list[i] = results[i].get('PExpirationDate');
+                list[i] = results[i].get('flowerName');
             }   
 
-           // console.log("expiration date  list: " + list);
+            console.error("Flower name list: " + list);
             response.success(list);
-    },
-    error: function() {
-      response.error("movie lookup failed");
+        },
+        error: function() {
+            response.error("lookup failed");
+        }
     });
 });
 
