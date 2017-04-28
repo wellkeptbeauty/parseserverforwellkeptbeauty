@@ -3,27 +3,18 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
 
-
-
-Parse.Cloud.define("TopTwo", function(request, response) {
-    var query = new Parse.Query("MyCollection");
-   
-    query.find({
-        success: function(results) {
-            console.error("Results: " + results);
-
-            var list = [];
-            for (i = 0; i < results.length; i++) {
-                list[i] = results[i].get('flowerName');
-            }   
-
-            console.error("Flower name list: " + list);
-            response.success(list);
-        },
-        error: function() {
-            response.error("lookup failed");
-        }
-    });
+Parse.Cloud.define("All", function(request, response) {
+  var query = new Parse.Query("MyCollection");
+ 
+  query.find({
+    success: function(results) {
+      
+      response.success(results);
+    },
+    error: function() {
+      response.error("lookup failed");
+    }
+  });
 });
 
 // Parse.Cloud.define('All', function(request, status)  
