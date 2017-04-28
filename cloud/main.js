@@ -19,15 +19,19 @@ Parse.Cloud.define("All", function(request, response) {
 Parse.Cloud.define("Allobjects", function(request, response) {
     var userQuery = new Parse.Query("MyCollection");
    
-    userQuery.find().then(function (results) {
-      console.log(results+"parse1");
-      console.log(JSON.stringify(results)+"parse2");
-      console.log(JSON.parse(results)+"parse3");
-        response.success(JSON.parse(results));
-    }, function (error) {
-      console.log("karthik"+JSON.stringify(error));
-        response.error(error);
-    });
+    userQuery.find({
+					  success: function(results) {
+              console.log("karthik sucess"+results.toJSON());
+              response.success(results.toJSON());
+              
+              },
+		
+					  error: function(error) {
+              console.log("karthik error"+error);
+              response.error("movie lookup failed");
+						// error is an instance of Parse.Error.
+					  }
+});
 });
 
 // Parse.Cloud.define('All', function(request, status)  
