@@ -9,9 +9,15 @@ Parse.Cloud.define("All", function(request, response) {
   var query = new Parse.Query("MyCollection");
  
   query.find({
-    success: function(results) {
-      
-      response.success(results);
+  console.error("Results: " + results);
+
+            var list = [];
+            for (i = 0; i < results.length; i++) {
+                list[i] = results[i].get('PExpirationDate');
+            }   
+
+            console.error("expiration date  list: " + list);
+            response.success(list);
     },
     error: function() {
       response.error("movie lookup failed");
