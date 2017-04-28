@@ -20,7 +20,7 @@ Parse.Cloud.define("All", function(request, response) {
             response.success(list);
     },
     error: function() {
-      response.error("movie lookup failed");
+      response.log("movie lookup failed");
     });
 });
 
