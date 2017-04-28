@@ -8,7 +8,7 @@ Parse.Cloud.define("All", function(request, response) {
   query.find({
     success: function(results) {
      
-      response.success(JSON.stringify(results));
+      response.success(JSON.parse(results));
     },
     error: function() {
       response.error("movie lookup failed");
@@ -20,7 +20,7 @@ Parse.Cloud.define("Allobjects", function(request, response) {
     var userQuery = new Parse.Query("MyCollection");
    
     userQuery.find().then(function (results) {
-        response.success(JSON.stringify(results));
+        response.success(JSON.parse(results));
     }, function (error) {
         response.error(error);
     });
