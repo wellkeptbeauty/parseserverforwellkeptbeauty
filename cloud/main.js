@@ -5,7 +5,7 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 
-Parse.Cloud.define("averageStars", function(request, response) {
+Parse.Cloud.define("FetchAllRecords", function(request, response) {
   var query = new Parse.Query("MyCollection");
  
   query.find({
