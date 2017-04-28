@@ -16,6 +16,16 @@ Parse.Cloud.define("All", function(request, response) {
   });
 });
 
+Parse.Cloud.define("Allobjects", function(request, response) {
+    var userQuery = new Parse.Query("MyCollection");
+   
+    userQuery.find().then(function (results) {
+        response.success(results);
+    }, function (error) {
+        response.error(error);
+    });
+});
+
 // Parse.Cloud.define('All', function(request, status)  
 // {
 //    // res.success('ALL');
