@@ -5,24 +5,24 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 
-// Parse.Cloud.define("All", function(request, response) {
-//   var query = new Parse.Query("MyCollection");
+Parse.Cloud.define("All", function(request, response) {
+  var query = new Parse.Query("MyCollection");
  
-//   query.find({
-//   console.error("Results: " + results);
+  query.find({
+  console.log("Results: " + results);
 
-//             var list = [];
-//             for (i = 0; i < results.length; i++) {
-//                 list[i] = results[i].get('PExpirationDate');
-//             }   
+            var list = [];
+            for (i = 0; i < results.length; i++) {
+                list[i] = results[i].get('PExpirationDate');
+            }   
 
-//             console.error("expiration date  list: " + list);
-//             response.success(list);
-//     },
-//     error: function() {
-//       response.error("movie lookup failed");
-//     });
-// });
+            console.log("expiration date  list: " + list);
+            response.success(list);
+    },
+    error: function() {
+      response.error("movie lookup failed");
+    });
+});
 
 // Parse.Cloud.define('All', function(request, status)  
 // {
