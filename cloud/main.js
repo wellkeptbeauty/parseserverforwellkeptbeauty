@@ -21,8 +21,8 @@ Parse.Cloud.define("Allobjects", function(request, response) {
    
     userQuery.find({
 					  success: function(results) {
-              console.log("karthik sucess"+results.toJSON());
-              response.success(results.toJSON());
+              console.log("karthik sucess"+results);
+              //response.success(results.toJSON());
               
               },
 		
