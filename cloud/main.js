@@ -67,6 +67,8 @@ Parse.Cloud.define('collection', function(request, status)
 var query = new Parse.Query(GameScore);
 query.find({
   success: function(results) {
+	       console.log("after query result is "+res);
+
     status.success("final result " + res);
 
     console.log("Successfully retrieved " + results.length);
