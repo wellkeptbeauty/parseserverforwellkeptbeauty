@@ -38,7 +38,7 @@ Parse.Cloud.define('people', function(request, status)
 {
     console.log('Parse.serverURL: ' + Parse.serverURL);
 
-  var query=new Parse.Query("MyCollection");
+var query = PFQuery(className:"MyCollection")
   
  query.find().then(function (res) 
     {
