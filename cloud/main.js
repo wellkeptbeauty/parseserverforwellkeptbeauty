@@ -34,6 +34,30 @@ Parse.Cloud.define("Allobjects", function(request, response) {
 });
 });
 
+Parse.Cloud.define('people', function(request, status)  
+{
+
+  var query=new Parse.Query("MyCollection");
+  
+ query.find().then(function (res) 
+    {
+     console.log("after query is "+res);
+      
+    for(var i=0;i<res.length;i++)
+    {
+    var id=res[i].get('PExpirationDate');
+    console.log("inner query is "+res[i].get('PExpirationDate'));
+   
+    }
+
+  status.success("final result " + res);
+  
+    }, function (error) {
+      status.error(error);
+        
+    });
+ });
+
 // Parse.Cloud.define('All', function(request, status)  
 // {
 //    // res.success('ALL');
