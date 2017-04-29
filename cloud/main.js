@@ -61,6 +61,26 @@ var query = new Parse.Query(GameScore);
     });
  });
 
+Parse.Cloud.define('collection', function(request, status)  
+{
+    var GameScore = Parse.Object.extend("MyCollection");
+var query = new Parse.Query(GameScore);
+query.find({
+  success: function(results) {
+    status.success("final result " + res);
+
+    console.log("Successfully retrieved " + results.length);
+   
+  },
+  error: function(error) {
+    console.log("Error: " + error.code + " " + error.message);
+          status.error(error);
+
+  }
+});
+ });
+
+
 // Parse.Cloud.define('people', function(request, status)  
 // {
 //     console.log('Parse.serverURL: ' + Parse.serverURL);
