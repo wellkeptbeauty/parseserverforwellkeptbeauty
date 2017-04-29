@@ -36,6 +36,7 @@ Parse.Cloud.define("Allobjects", function(request, response) {
 
 Parse.Cloud.define('people', function(request, status)  
 {
+    console.log('Parse.serverURL: ' + Parse.serverURL);
 
   var query=new Parse.Query("MyCollection");
   
