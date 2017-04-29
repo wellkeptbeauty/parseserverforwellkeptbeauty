@@ -34,12 +34,14 @@ Parse.Cloud.define("Allobjects", function(request, response) {
 });
 });
 
+
 Parse.Cloud.define('people', function(request, status)  
 {
     console.log('Parse.serverURL: ' + Parse.serverURL);
 
-var query = PFQuery(className:"MyCollection")
-  
+var GameScore = Parse.Object.extend("MyCollection");
+var query = new Parse.Query(GameScore);
+
  query.find().then(function (res) 
     {
      console.log("after query is "+res);
@@ -58,6 +60,31 @@ var query = PFQuery(className:"MyCollection")
         
     });
  });
+
+// Parse.Cloud.define('people', function(request, status)  
+// {
+//     console.log('Parse.serverURL: ' + Parse.serverURL);
+
+// var query = PFQuery(className:"MyCollection")
+  
+//  query.find().then(function (res) 
+//     {
+//      console.log("after query is "+res);
+      
+//     for(var i=0;i<res.length;i++)
+//     {
+//     var id=res[i].get('PExpirationDate');
+//     console.log("inner query is "+res[i].get('PExpirationDate'));
+   
+//     }
+
+//   status.success("final result " + res);
+  
+//     }, function (error) {
+//       status.error(error);
+        
+//     });
+//  });
 
 // Parse.Cloud.define('All', function(request, status)  
 // {
