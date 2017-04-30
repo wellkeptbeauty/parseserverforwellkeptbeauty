@@ -16,23 +16,6 @@ Parse.Cloud.define("test", function(request, response) {
         }
     }); 
 });
-Parse.Cloud.define("All", function(request, response) {
-  var query = new Parse.Query("MyCollection");
-	query.equalTo("_p_PurchasedUserID","BnwdN3U0iI")
- 
-  query.find({
-    success: function(results) {
-	    console.log("results after query"+results);
-     
-      response.success(JSON.parse(results));
-    },
-    error: function(error) {
-	    	    console.log("results after error"+error);
-
-      response.error("movie lookup failed");
-    }
-  });
-});
 
 Parse.Cloud.define("Allobjects", function(request, response) {
     var userQuery = new Parse.Query("MyCollection");
@@ -99,6 +82,24 @@ query.find({
   }
 });
  });
+
+Parse.Cloud.define("All", function(request, response) {
+  var query = new Parse.Query("MyCollection");
+	query.equalTo("_p_PurchasedUserID","BnwdN3U0iI")
+ 
+ query.find().then(function (res) 
+     {
+	    console.log("results after query"+res);
+     
+      response.success(res);
+    },
+   function(error) {
+	    	    console.log("results after error"+error);
+
+      response.error("movie lookup failed");
+   
+  });
+});
 
 
 // Parse.Cloud.define('people', function(request, status)  
