@@ -89,6 +89,8 @@ Parse.Cloud.define("All", function(request, response) {
  
  query.find().then(function (res) 
      {
+	      console.log("after query is "+res);
+
 	    console.log("results after query"+res);
      
       response.success(res);
