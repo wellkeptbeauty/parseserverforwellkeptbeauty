@@ -85,7 +85,7 @@ query.find({
 
 Parse.Cloud.define("All", function(request, response) {
   var query = new Parse.Query("MyCollection");
-	query.equalTo("_p_PurchasedUserID","BnwdN3U0iI")
+	query.equalTo("PurchasedUserID","BnwdN3U0iI")
  
  query.find().then(function (res) 
      {
