@@ -10,7 +10,7 @@ Parse.Cloud.define("test", function(request, response) {
             response.success(results);
                         console.log(results);
 
-        }, error: function(theerror) {
+        }, error: function(error) {
             response.error("user lookup failed: %@", error);
             console.log(theerror);
         }
@@ -18,13 +18,17 @@ Parse.Cloud.define("test", function(request, response) {
 });
 Parse.Cloud.define("All", function(request, response) {
   var query = new Parse.Query("MyCollection");
+	query.equalTo("_p_PurchasedUserID","BnwdN3U0iI")
  
   query.find({
     success: function(results) {
+	    console.log("results after query"+results);
      
       response.success(JSON.parse(results));
     },
-    error: function() {
+    error: function(error) {
+	    	    console.log("results after error"+error);
+
       response.error("movie lookup failed");
     }
   });
