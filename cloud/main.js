@@ -4,8 +4,9 @@ Parse.Cloud.define('hello', function(req, res) {
 });
 
 Parse.Cloud.define("coolection", function(request, response) {
-
-		    console.log("define request :",request);
+	
+		    console.log("we are in define cloud");
+		    console.log("define request :"+JSONStringify(request));
 		    console.log("response :",response);
 
 	var query = new Parse.Query("MyCollection");
