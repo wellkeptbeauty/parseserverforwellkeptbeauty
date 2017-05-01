@@ -30,12 +30,11 @@ Parse.Cloud.define("coolection", function(request, response) {
 Parse.Cloud.define("Experts", function(request, response) {
 	
 	console.log("we are in define cloud");
-//	console.log("define request :",request);
 	console.log("response :",response.success,response.error);
 	
 	var query = new Parse.Query("BeautyExperts");
 	
-	query.equalTo("EName","K. AJ Crimson);
+	query.equalTo("EName","K. AJ Crimson");
 
 	console.log("query  :",query);
 	query.find({
