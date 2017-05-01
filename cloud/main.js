@@ -11,7 +11,7 @@ Parse.Cloud.define("coolection", function(request, response) {
 	
 	var query = new Parse.Query("MyCollection");
 	
-	query.equalTo("PCompanyName","Beauty Encounter");
+	query.equalTo("PCompanyName");
 
 	console.log("query  :",query);
 	query.find({
