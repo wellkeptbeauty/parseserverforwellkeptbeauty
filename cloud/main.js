@@ -5,20 +5,21 @@ Parse.Cloud.define('hello', function(req, res) {
 
 Parse.Cloud.define("coolection", function(request, response) {
 
-		    console.log("define request :"+request+"response :"+response);
+		    console.log("define request :",request);
+		    console.log("response :",response);
 
 	var query = new Parse.Query("MyCollection");
-		    console.log(" query :"+query);
+		    console.log(" query :",query);
 	query.equalTo("PCompanyName","Beauty Encounter");
   query.find({
 	  
     success: function(results) {
       
       response.success(results);
-	    console.log("companyname:"+results);
+	    console.log("companyname:",results);
     },
     error: function(error) {
-	    	    console.log("companyname fail:"+error);
+	    	    console.log("companyname fail:",error);
 
       response.error("movie lookup failed");
     }
