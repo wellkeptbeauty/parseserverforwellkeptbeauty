@@ -7,7 +7,9 @@ Parse.Cloud.define('hello', function(req, res) {
 Parse.Cloud.define("getUserId", function(request, response) 
 {
     //Example where an objectId is passed to a cloud function.
-    var id = request.params.objectId;
+  //  var id = request.params.objectId;
+	    var id = "BnwdN3U0iI";
+
 
     //When getUser(id) is called a promise is returned. Notice the .then this means that once the promise is fulfilled it will continue. See getUser() function below.
     getUser(id).then
