@@ -15,7 +15,6 @@ Parse.Cloud.define("coolection", function(request, response) {
 
 	console.log("query  :",query);
 	query.find({
-		
 		success: function(results) {
 	    		console.log("In Query Success :",results);
       		      response.success(results);
@@ -161,6 +160,7 @@ query.find({
 
 Parse.Cloud.define("All", function(request, response) {
   var query = new Parse.Query("MyCollection");
+	
 	query.equalTo("PCompanyName","Beauty Encounter");
  
  query.find().then(function (res) 
