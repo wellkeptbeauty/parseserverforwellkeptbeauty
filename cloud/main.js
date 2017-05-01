@@ -7,24 +7,37 @@ Parse.Cloud.define("coolection", function(request, response) {
 	
 	console.log("we are in define cloud");
 //	console.log("define request :",request);
-	console.log("response :",response.success,response.error);
+//	console.log("response :",response.success,response.error);
 	
-	var query = new Parse.Query("MyCollection");
+// 	var query = new Parse.Query("MyCollection");
 	
-//	query.equalTo("PCompanyName");
+// //	query.equalTo("PCompanyName");
 
-	console.log("query  :",query);
-	query.find({
-		success: function(results) {
-	    		console.log("In Query Success :",results);
-      		      response.success(results);
-	    		console.log("companyname:",results);
-    		},
-    		error: function(error) {
-	    	    console.log("companyname fail:",error);
-		      response.error("movie lookup failed");
-    		}
-  	});
+// 	console.log("query  :",query);
+// 	query.find({
+// 		success: function(results) {
+// 	    		console.log("In Query Success :",results);
+//       		      response.success(results);
+// 	    		console.log("companyname:",results);
+//     		},
+//     		error: function(error) {
+// 	    	    console.log("companyname fail:",error);
+// 		      response.error("movie lookup failed");
+//     		}
+//   	});
+
+	    var query = new Parse.Query("MyCollection");
+
+    query.find({
+        success: function(results) {
+            response.success(results);
+                        console.log("success ",results);
+
+        }, error: function(error) {
+            response.error("failed: %@", error);
+            console.log(theerror);
+        }
+    }); 
 });
 
 
