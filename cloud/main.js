@@ -3,6 +3,23 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
 
+Parse.Cloud.define("coolection", function(request, response) {
+  var query = new Parse.Query("MyCollection");
+	query.equalTo("PCompanyName","Beauty Encounter");
+  query.find({
+    success: function(results) {
+      
+      response.success(results);
+	    console.log("companyname:"+results);
+    },
+    error: function(error) {
+	    	    console.log("companyname fail:"+error);
+
+      response.error("movie lookup failed");
+    }
+  });
+});
+
 
 
 // Parse.Cloud.define("getUserId", function(request, response) 
