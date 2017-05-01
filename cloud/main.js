@@ -13,8 +13,11 @@ Parse.Cloud.define("coolection", function(request, response) {
 	
 	query.equalTo("PCompanyName","Beauty Encounter");
 
+	console.log("query  :",query);
 	query.find({
-    		success: function(results) {
+		
+		success: function(results) {
+	    		console.log("In Query Success :",results);
       		      response.success(results);
 	    		console.log("companyname:",results);
     		},
