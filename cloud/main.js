@@ -27,29 +27,7 @@ Parse.Cloud.define("coolection", function(request, response) {
     		}
   	});
 });
-Parse.Cloud.define("Experts", function(request, response) {
-	
-	console.log("we are in define cloud");
-	console.log("response :",response.success,response.error);
-	
-	var query = new Parse.Query("BeautyExperts");
-	
-	query.equalTo("EName","K. AJ Crimson");
 
-	console.log("query  :",query);
-	query.find({
-		
-		success: function(results) {
-	    		console.log("In Query Success :",results);
-      		      response.success(results);
-	    		console.log("companyname:",results);
-    		},
-    		error: function(error) {
-	    	    console.log("companyname fail:",error);
-		      response.error("movie lookup failed");
-    		}
-  	});
-});
 
 
 
