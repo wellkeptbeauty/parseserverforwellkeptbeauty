@@ -4,9 +4,14 @@ Parse.Cloud.define('hello', function(req, res) {
 });
 
 Parse.Cloud.define("coolection", function(request, response) {
-  var query = new Parse.Query("MyCollection");
+
+		    console.log("define request :"+request+"response :"+response);
+
+	var query = new Parse.Query("MyCollection");
+		    console.log(" query :"+query);
 	query.equalTo("PCompanyName","Beauty Encounter");
   query.find({
+	  
     success: function(results) {
       
       response.success(results);
