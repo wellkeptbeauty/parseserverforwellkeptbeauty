@@ -46,11 +46,11 @@ Parse.Cloud.define("articles", function(request, response) {
   query.equalTo("EName", "K. AJ Crimson");
   query.find({
     success: function(results) {
-      console.log("sucess experts is"+results);
+      console.log("sucess experts is",results);
       response.success(results);
     },
     error: function(error) {
-	    console.log("error at expert"+error);
+	    console.log("error at expert",error);
       response.error("expert failed");
     }
   });
