@@ -345,5 +345,5 @@ Parse.Cloud.define("alertAuthor", function(request,response){
     error: function(error) {
     //Oops
     }
-  });
+  },{ useMasterKey: true });
 });
