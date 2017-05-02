@@ -249,7 +249,7 @@ var todaysDate = new Date();
 
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
-console.log("object id is"+res[i].get('PurchasedUserID').get('_id'));
+console.log("object id is"+res[i].get('PurchasedUserID').get('id'));
 	
 	//res[i].get('userName').get('userObjectId')
  // alert("equal")
