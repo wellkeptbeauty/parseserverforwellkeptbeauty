@@ -146,7 +146,7 @@ var query = new Parse.Query(GameScore);
 
  query.find().then(function (res) 
     {
-     console.log("after query is "+res);
+     console.log("after query is ",res);
       
     for(var i=0;i<res.length;i++)
     {
