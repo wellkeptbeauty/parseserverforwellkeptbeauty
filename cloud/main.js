@@ -334,20 +334,23 @@ var email=request.params.toEmail;
 	// var username = request.object.get("username");
 
                   //Set push query
-                  var pushQuery = new Parse.Query(Parse.Installation);
-                  pushQuery.equalTo("email",email);
+                  var query = new Parse.Query(Parse.User);
+  //var message = request.params.message;
+  query.equalTo('email', email);
 
-                  //Send Push message
-                 Parse.Push.send({
-    where: pushQuery,
-    data: {
-        alert: 'One more test 1',
-        badge: 1,
-        sound: 'default',
-        objectId: user.id,
-        'content-available': 1
-
+  Parse.Push.send({
+    where: query,
+    data : { 
+      alert: "hai",
+      badge: "Increment",
+      sound: "",
     }
-
-}, { useMasterKey: true });
+    }, {
+    success: function() {
+    //Success
+    },
+    error: function(error) {
+    //Oops
+    }
+  });
 });
