@@ -330,20 +330,35 @@ Parse.Cloud.define("alertAuthor", function(request,response){
 	var email=request.params.toEmail;
 	console.log("email id is after inner"+email);
   query.equalTo('email', email);
-
-  Parse.Push.send({
+	
+	
+	
+	Parse.Push.send({
     where: query,
-    data : { 
-      alert: "alert for product",
-      badge: "Increment",
-      sound: "",
+    data: {
+        alert: 'One more test 1',
+        badge: 1,
+        sound: 'default',
+        email: email,
+        'content-available': 1
+
     }
-    }, {
-    success: function() {
-    //Success
-    },
-    error: function(error) {
-    //Oops
-    }
-  },{ useMasterKey: true });
+
+}, { useMasterKey: true });
+
+//   Parse.Push.send({
+//     where: query,
+//     data : { 
+//       alert: "alert for product",
+//       badge: "Increment",
+//       sound: "",
+//     }
+//     }, {
+//     success: function() {
+//     //Success
+//     },
+//     error: function(error) {
+//     //Oops
+//     }
+//   },{ useMasterKey: true });
 });
