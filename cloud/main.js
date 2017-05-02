@@ -294,7 +294,7 @@ var todaysDate = new Date();
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
 console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
-	Parse.Cloud.run("push", { toEmail:res[i].get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
+	Parse.Cloud.run("alertAuthor", { toEmail:res[i].get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
 											   {
     // make sure the set the enail sent flag on the object
     console.log("result :" + JSON.stringify(result))
@@ -324,24 +324,17 @@ else
 });
 
 
-Parse.Cloud.define('push', function(request, status)  
-{
-    
-    
-
-var email=request.params.toEmail;
-	
-	// var username = request.object.get("username");
-
-                  //Set push query
-                  var query = new Parse.Query(Parse.User);
-  //var message = request.params.message;
+Parse.Cloud.define("alertAuthor", function(request,response){
+  var query = new Parse.Query(Parse.User);
+ // var message = request.params.message;
+	var email=request.params.toEmail;
+	console.log("email id is after inner"+email);
   query.equalTo('email', email);
 
   Parse.Push.send({
     where: query,
     data : { 
-      alert: "hai",
+      alert: message,
       badge: "Increment",
       sound: "",
     }
@@ -352,5 +345,5 @@ var email=request.params.toEmail;
     error: function(error) {
     //Oops
     }
-  },{ useMasterKey: true });
+  });
 });
