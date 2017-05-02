@@ -351,5 +351,5 @@ var email=request.params.toEmail;
                                   error: function (error) {
                                   response.error(error);
                                   }
-                 });
+                 },{ useMasterKey: true });
 });
