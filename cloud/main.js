@@ -231,6 +231,49 @@ Parse.Cloud.define("All", function(request, response) {
 //     });
 //  });
 
+// Parse.Cloud.define('Allobjetcs', function(request, status)  
+// {
+//    // res.success('ALL');
+
+//   var query=new Parse.Query("MyCollection");
+// Parse.Cloud.useMasterKey();
+// 	query.include('PurchasedUserID');
+//    query.find().then(function (res) 
+// {
+//  console.log("after query is :" + JSON.stringify(res));
+
+// for (var i=0; i< res.length;i++){
+// var expirydate=res[i].get('PExpirationDate');
+ 
+// var inputDate = new Date(expirydate);
+// var todaysDate = new Date();
+
+// if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
+// {
+// console.log("object id is"+res[i].get('PurchasedUserID').get('objectId'));
+	
+// 	//res[i].get('userName').get('userObjectId')
+//  // alert("equal")
+
+// //res.success("object id is"+JSON.stringify(result));
+// }
+// else
+// {
+
+// //alert(" not equal")
+// }
+// }
+//  status.success("final result " + results);
+        
+      
+   
+//     }, function queryFailed(reason) {
+//       status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
+         
+//     });
+// });
+
+
 Parse.Cloud.define('Allobjetcs', function(request, status)  
 {
    // res.success('ALL');
@@ -250,7 +293,14 @@ var todaysDate = new Date();
 
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
-console.log("object id is"+res[i].get('PurchasedUserID').get('objectId'));
+console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
+	Parse.Cloud.run("push", { toEmail:res[i].get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
+											   {
+    // make sure the set the enail sent flag on the object
+    console.log("result :" + JSON.stringify(result))
+       }, function(error) {
+        
+     });
 	
 	//res[i].get('userName').get('userObjectId')
  // alert("equal")
@@ -271,4 +321,35 @@ else
       status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
          
     });
+});
+
+
+Parse.Cloud.define('push', function(request, status)  
+{
+    
+    
+
+var email=request.params.toEmail;
+	
+	// var username = request.object.get("username");
+
+                  //Set push query
+                  var pushQuery = new Parse.Query(Parse.Installation);
+                  pushQuery.equalTo("email",email);
+
+                  //Send Push message
+                  Parse.Push.send({
+                                  where: pushQuery,
+                                  data: {
+                                  alert: "New Ticket Added",
+                                  sound: "default"
+                                  }
+                                  },{
+                                  success: function(){
+                                  response.success('true');
+                                  },
+                                  error: function (error) {
+                                  response.error(error);
+                                  }
+                 });
 });
