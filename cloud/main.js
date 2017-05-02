@@ -42,7 +42,7 @@ Parse.Cloud.define("coolection", function(request, response) {
 
 
 Parse.Cloud.define("articles", function(request, response) {
-  var query = new Parse.Query("BeautyExperts ");
+  var query = new Parse.Query("BeautyExperts");
   query.equalTo("EName", "K. AJ Crimson");
   query.find({
     success: function(results) {
