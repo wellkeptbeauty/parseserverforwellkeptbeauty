@@ -294,7 +294,7 @@ var todaysDate = new Date();
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
 console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
-	Parse.Cloud.run("alertAuthor", { toEmail:res[i].get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
+	Parse.Cloud.run("alertAuthor", { toEmail:res[i].get('PurchasedUserID').get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
 											   {
     // make sure the set the enail sent flag on the object
     console.log("result :" + JSON.stringify(result))
