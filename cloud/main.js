@@ -338,18 +338,16 @@ var email=request.params.toEmail;
                   pushQuery.equalTo("email",email);
 
                   //Send Push message
-                  Parse.Push.send({
-                                  where: pushQuery,
-                                  data: {
-                                  alert: "New Ticket Added",
-                                  sound: "default"
-                                  }
-                                  },{
-                                  success: function(){
-                                  response.success('true');
-                                  },
-                                  error: function (error) {
-                                  response.error(error);
-                                  }
-                 },{ useMasterKey: true });
+                 Parse.Push.send({
+    where: pushQuery,
+    data: {
+        alert: 'One more test 1',
+        badge: 1,
+        sound: 'default',
+        objectId: user.id,
+        'content-available': 1
+
+    }
+
+}, { useMasterKey: true });
 });
