@@ -41,7 +41,20 @@ Parse.Cloud.define("coolection", function(request, response) {
 });
 
 
-
+Parse.Cloud.define("articles", function(request, response) {
+  var query = new Parse.Query("BeautyExperts ");
+  query.equalTo("EName", "K. AJ Crimson");
+  query.find({
+    success: function(results) {
+      console.log("sucess experts is"+results);
+      response.success(results);
+    },
+    error: function(error) {
+	    console.log("error at expert"+error);
+      response.error("expert failed");
+    }
+  });
+});
 
 // Parse.Cloud.define("getUserId", function(request, response) 
 // {
