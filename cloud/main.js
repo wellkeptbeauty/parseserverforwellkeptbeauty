@@ -231,7 +231,7 @@ Parse.Cloud.define("All", function(request, response) {
 //     });
 //  });
 
-Parse.Cloud.define('All', function(request, status)  
+Parse.Cloud.define('Allobjetcs', function(request, status)  
 {
    // res.success('ALL');
 
