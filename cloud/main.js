@@ -324,48 +324,76 @@ else
 });
 
 
-Parse.Cloud.define("alertAuthor", function(request,response){
-	var query = new Parse.Query(Parse.Installation);
+// Parse.Cloud.define("alertAuthor", function(request,response){
+// 	var query = new Parse.Query(Parse.Installation);
 
- // var query = new Parse.Query(Parse.User);
- // var message = request.params.message;
-	var email=request.params.toEmail;
+//  // var query = new Parse.Query(Parse.User);
+//  // var message = request.params.message;
+// 	var email=request.params.toEmail;
+// 	console.log("email id is after inner"+email);
+//   query.equalTo('email', email);
+	
+	
+	
+// 	Parse.Push.send({
+//     where: query,
+//     data: {
+//         alert: 'One more test for installation',
+//         badge: 1,
+//         sound: 'default',
+//         email: email,
+//         'content-available': 1
+
+//     }
+
+// }, { useMasterKey: true });
+
+// //   Parse.Push.send({
+// //     where: query,
+// //     data : { 
+// //       alert: "alert for product",
+// //       badge: "Increment",
+// //       sound: "",
+// //     }
+// //     }, {
+// //     success: function() {
+// //     //Success
+// //     },
+// //     error: function(error) {
+// //     //Oops
+// //     }
+// //   },{ useMasterKey: true });
+// });
+
+
+Parse.Cloud.define("alertAuthor", function(request,response){
+
+var query = new Parse.Query(Parse.Installation);
+  query.exists("deviceToken");
+var email=request.params.toEmail;
 	console.log("email id is after inner"+email);
   query.equalTo('email', email);
-	
-	
-	
-	Parse.Push.send({
-    where: query,
-    data: {
-        alert: 'One more test for installation',
-        badge: 1,
-        sound: 'default',
-        email: email,
-        'content-available': 1
+  // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
-    }
+  var payload = {
+    alert: "hai"
+      // you can add other stuff here...
+  };
 
-}, { useMasterKey: true });
 
-//   Parse.Push.send({
-//     where: query,
-//     data : { 
-//       alert: "alert for product",
-//       badge: "Increment",
-//       sound: "",
-//     }
-//     }, {
-//     success: function() {
-//     //Success
-//     },
-//     error: function(error) {
-//     //Oops
-//     }
-//   },{ useMasterKey: true });
+  Parse.Push.send({
+      data: payload,
+      where: query
+    }, {
+      useMasterKey: true
+    })
+    .then(function() {
+      response.success("Push Sent!");
+    }, function(error) {
+      response.error("Error while trying to send push " + error.message);
+    });
+
 });
-
-
 
 
 // Parse.Cloud.define("alertAuthor", function(request,response){
