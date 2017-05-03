@@ -338,7 +338,7 @@ Parse.Cloud.define("alertAuthor", function(request,response){
 	Parse.Push.send({
     where: query,
     data: {
-        alert: 'One more test 1',
+        alert: 'One more test for installation',
         badge: 1,
         sound: 'default',
         email: email,
