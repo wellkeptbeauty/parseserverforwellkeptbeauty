@@ -325,7 +325,9 @@ else
 
 
 Parse.Cloud.define("alertAuthor", function(request,response){
-  var query = new Parse.Query(Parse.User);
+	var query = new Parse.Query(Parse.Installation);
+
+ // var query = new Parse.Query(Parse.User);
  // var message = request.params.message;
 	var email=request.params.toEmail;
 	console.log("email id is after inner"+email);
