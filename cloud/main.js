@@ -438,3 +438,24 @@ var email=request.params.email;
 
 
 // })
+Parse.Cloud.job("testPush", function(request, status) {
+    Parse.Cloud.useMasterKey();
+    var installationQuery = new Parse.Query(Parse.Installation);
+   var user = new Parse.User();
+    user.id = 'BnwdN3U0iI';    
+   installationQuery.equalTo('user', user);  // I triple checked - this is the value of my user in the installation table.
+    Parse.Push.send({
+        where: installationQuery,
+        data: {
+            alert: "Test"
+        },
+    }, {
+        success: function() {
+            console.log("The Push Test Worked!");
+            status.success("All done with the push test!");
+        }, error: function(error) {
+            console.error("Something bad happened " + error);
+            status.error("Something bad happened during the Parse test...");
+        }
+    });
+});
