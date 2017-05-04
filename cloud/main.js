@@ -390,7 +390,8 @@ var userId=request.params.user;
     }, {
       useMasterKey: true
     })
-    .then(function() {
+    .then(function(result) {
+	  console.log("result :" + JSON.stringify(result))
       response.success("Push Sent!");
     }, function(error) {
       response.error("Error while trying to send push " + error.message);
