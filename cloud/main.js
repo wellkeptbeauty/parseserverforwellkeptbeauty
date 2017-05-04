@@ -459,3 +459,32 @@ Parse.Cloud.define("testPush", function(request, status) {
         }
     });
 });
+Parse.Cloud.define("iosPush", function(request, response) {
+ 
+  var user = request.user;
+  var params = request.params;
+  var someKey = params.someKey
+ // var data = params.data
+  var payload = {
+    alert: "testing push for device",
+	  sound: 'default',
+	  badge: 1
+
+      // you can add other stuff here...
+  };
+ 
+  var pushQuery = new Parse.Query(Parse.Installation);
+  pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only
+  pushQuery.equalTo("email", someKey)
+ 
+  Parse.Push.send({
+    where: pushQuery, // Set our Installation query
+    data: payload
+  }, { success: function() {
+      console.log("#### PUSH OK");
+  }, error: function(error) {
+      console.log("#### PUSH ERROR" + error.message);
+  }, useMasterKey: true});
+ 
+  response.success('success');
+});
