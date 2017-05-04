@@ -372,7 +372,7 @@ var query = new Parse.Query(Parse.Installation);
   query.exists("deviceToken");
 var email=request.params.toEmail;
 	console.log("email id is after inner"+email);
-  query.equalTo('email', email);
+  query.equalTo('userId', email);
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
   var payload = {
