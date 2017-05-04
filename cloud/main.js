@@ -438,7 +438,7 @@ var email=request.params.email;
 
 
 // })
-Parse.Cloud.job("testPush", function(request, status) {
+Parse.Cloud.define("testPush", function(request, status) {
     Parse.Cloud.useMasterKey();
     var installationQuery = new Parse.Query(Parse.Installation);
    var user = new Parse.User();
