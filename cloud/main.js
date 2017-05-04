@@ -368,11 +368,11 @@ else
 
 Parse.Cloud.define("alertAuthor", function(request,response){
 
-var query = new Parse.Query(Parse.Installation);
-  query.exists("deviceToken");
-var email=request.params.userId;
-	console.log("email id is after inner"+email);
-  query.equalTo('userId', email);
+var query1 = new Parse.Query(Parse.Installation);
+  query1.exists("deviceToken");
+var userId=request.params.user;
+	console.log("email id is after inner"+userId);
+  query1.equalTo('user', userId);
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
   var payload = {
@@ -386,7 +386,7 @@ var email=request.params.userId;
 
   Parse.Push.send({
       data: payload,
-      where: query
+      where: query1
     }, {
       useMasterKey: true
     })
