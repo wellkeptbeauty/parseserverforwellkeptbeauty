@@ -376,7 +376,10 @@ var email=request.params.userId;
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
   var payload = {
-    alert: "hai"
+    alert: "testing push for device",
+	  sound: 'default',
+	  badge: 1
+
       // you can add other stuff here...
   };
 
