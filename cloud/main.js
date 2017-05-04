@@ -294,7 +294,7 @@ var todaysDate = new Date();
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
 console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
-	Parse.Cloud.run("alertAuthor", { userId:res[i].get('PurchasedUserID').get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
+	Parse.Cloud.run("alertAuthor", { email:res[i].get('PurchasedUserID').get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
 											   {
     // make sure the set the enail sent flag on the object
     console.log("result :" + JSON.stringify(result))
@@ -370,9 +370,9 @@ Parse.Cloud.define("alertAuthor", function(request,response){
 
 var query1 = new Parse.Query(Parse.Installation);
   query1.exists("deviceToken");
-var userId=request.params.user;
-	console.log("email id is after inner"+userId);
-  query1.equalTo('user', userId);
+var email=request.params.email;
+	console.log("email id is after inner"+email);
+  query1.equalTo('email', email);
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
   var payload = {
