@@ -443,7 +443,7 @@ Parse.Cloud.define("testPush", function(request, status) {
     var installationQuery = new Parse.Query(Parse.Installation);
    var user = new Parse.User();
     user.id = 'BnwdN3U0iI';    
-   installationQuery.equalTo('user', user);  // I triple checked - this is the value of my user in the installation table.
+   installationQuery.equalTo('user', user.id);  // I triple checked - this is the value of my user in the installation table.
     Parse.Push.send({
         where: installationQuery,
         data: {
