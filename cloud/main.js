@@ -519,5 +519,5 @@ Parse.Push.send({
     error: function (error) {
         response.error(error);
     }
-});
+},useMasterKey: true);
 });
