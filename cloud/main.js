@@ -463,7 +463,7 @@ Parse.Cloud.define("iosPush", function(request, response) {
  
   var user = request.user;
   var params = request.params;
-  var email = params.email
+  var email = request.params.email;
  // var data = params.data
   var payload = {
     alert: "testing push for device",
