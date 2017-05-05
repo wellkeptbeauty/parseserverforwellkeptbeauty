@@ -512,8 +512,9 @@ Parse.Push.send({
         }
     }
 }, {
-    success: function () {
+    success: function (result) {
         response.success("Hello world!");
+	    console.log("result after sucess",result);
     },
     error: function (error) {
         response.error(error);
