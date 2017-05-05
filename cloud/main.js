@@ -480,7 +480,8 @@ Parse.Cloud.define("iosPush", function(request, response) {
   Parse.Push.send({
     where: pushQuery, // Set our Installation query
     data: payload
-  }, { success: function() {
+  }, { success: function(obj) {
+	  console.log("output",obj)
       console.log("#### PUSH OK");
   }, error: function(error) {
       console.log("#### PUSH ERROR" + error.message);
