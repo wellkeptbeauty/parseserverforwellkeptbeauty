@@ -492,7 +492,6 @@ Parse.Cloud.define("iosPush", function(request, response) {
  
   response.success('success');
 });
-
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 
 
@@ -518,6 +517,6 @@ Parse.Push.send({
     },
     error: function (error) {
         response.error(error);
-    }
+    },useMasterKey: true
 });
 });
