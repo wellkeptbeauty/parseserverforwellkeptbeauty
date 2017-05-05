@@ -479,7 +479,9 @@ Parse.Cloud.define("iosPush", function(request, response) {
  
   Parse.Push.send({
     where: pushQuery, // Set our Installation query
-    data: payload
+    data: {alert: "testing push for device",
+	  sound: 'default',
+	  badge: 1}
   }, { success: function(obj) {
 	  console.log("output",obj)
       console.log("#### PUSH OK");
