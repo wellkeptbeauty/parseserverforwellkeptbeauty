@@ -492,3 +492,32 @@ Parse.Cloud.define("iosPush", function(request, response) {
  
   response.success('success');
 });
+
+Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
+
+
+var query = new Parse.Query(Parse.User);
+query.equalTo('username', 'Sento');
+// Find devices associated with these users
+var pushQuery = new Parse.Query(Parse.Installation);
+// need to have users linked to installations
+pushQuery.matchesQuery('user', query);
+
+
+Parse.Push.send({
+    where: pushQuery,
+    data: {
+        aps: {
+            alert: "Test",
+            sound: ""
+        }
+    }
+}, {
+    success: function () {
+        response.success("Hello world!");
+    },
+    error: function (error) {
+        response.error(error);
+    }
+});
+});
