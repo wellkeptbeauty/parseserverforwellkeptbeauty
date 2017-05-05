@@ -497,7 +497,7 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 
 
 var query = new Parse.Query(Parse.User);
-query.equalTo('username', 'Sento');
+query.equalTo('email', 'karthik@betabulls.com');
 // Find devices associated with these users
 var pushQuery = new Parse.Query(Parse.Installation);
 // need to have users linked to installations
