@@ -494,7 +494,7 @@ Parse.Cloud.define("iosPush", function(request, response) {
 });
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 
-
+	
 var query = new Parse.Query(Parse.User);
 query.equalTo('email', 'karthik@betabulls.com');
 // Find devices associated with these users
