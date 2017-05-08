@@ -508,7 +508,9 @@ Parse.Push.send({
     data: {
         aps: {
             alert: "Test",
-            sound: ""
+            sound: "",
+	    content-available: Int(1)
+
         }
     }
 }, {
