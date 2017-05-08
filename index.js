@@ -5,6 +5,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
+var devCertPath = path.resolve(__dirname, '/certificates/pushfordevelopment.p12');
 
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
@@ -24,7 +25,7 @@ var api = new ParseServer({
   push: {
   ios: [
     {
-      pfx: '/certificates/pushfordevelopment.p12',
+      pfx:devCertPath,
       bundleId: 'com.wellkeptbeauty',
       production: false
     }
