@@ -493,33 +493,60 @@ Parse.Cloud.define("iosPush", function(request, response) {
   response.success('success');
 });
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
+	
+	
+	
+	 var query = new Parse.Query(Parse.Installation);
+  query.exists("deviceToken");
+
+  // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
+
+  var payload = {
+    alert: "YOUR_MESSAGE",
+	  sound: "",
+            'content-available': 1
+      // you can add other stuff here...
+  };
+
+
+  Parse.Push.send({
+      data: payload,
+      where: query
+    }, {
+      useMasterKey: true
+    })
+    .then(function() {
+      response.success("Push Sent!");
+    }, function(error) {
+      response.error("Error while trying to send push " + error.message);
+    });
 
 	
-var query = new Parse.Query(Parse.User);
-query.equalTo('email', 'karthik@betabulls.com');
-// Find devices associated with these users
-var pushQuery = new Parse.Query(Parse.Installation);
-// need to have users linked to installations
-pushQuery.matchesQuery('user', query);
+// var query = new Parse.Query(Parse.User);
+// query.equalTo('email', 'karthik@betabulls.com');
+// // Find devices associated with these users
+// var pushQuery = new Parse.Query(Parse.Installation);
+// // need to have users linked to installations
+// pushQuery.matchesQuery('user', query);
 
 
-Parse.Push.send({
-    where: pushQuery,
-    data: {
-        aps: {
-            alert: "Test",
-            sound: "",
-            'content-available': 1
+// Parse.Push.send({
+//     where: pushQuery,
+//     data: {
+//         aps: {
+//             alert: "Test",
+//             sound: "",
+//             'content-available': 1
 
-        }
-    }
-}, {
-    success: function (result) {
-        response.success("Hello world!");
-	    console.log("result after sucess",result);
-    },
-    error: function (error) {
-        response.error(error);
-    },useMasterKey: true
-});
+//         }
+//     }
+// }, {
+//     success: function (result) {
+//         response.success("Hello world!");
+// 	    console.log("result after sucess",result);
+//     },
+//     error: function (error) {
+//         response.error(error);
+//     },useMasterKey: true
+// });
 });
