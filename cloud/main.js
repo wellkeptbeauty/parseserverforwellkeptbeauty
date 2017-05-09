@@ -505,7 +505,7 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
   var payload = {
-    alert: "YOUR_MESSAGE",
+    alert: "testing for mail",
 	  sound: "",
             'content-available': 1
       // you can add other stuff here...
