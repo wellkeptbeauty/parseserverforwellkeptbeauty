@@ -494,10 +494,12 @@ Parse.Cloud.define("iosPush", function(request, response) {
 });
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	
+	var query = new Parse.Query(Parse.User);
+//  var message = request.params.message;
+  query.equalTo('username', 'karthik@betabulls.com');
 	
-	
-	 var query = new Parse.Query(Parse.Installation);
-  query.exists("deviceToken");
+// 	 var query = new Parse.Query(Parse.Installation);
+//   query.exists("deviceToken");
 
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
