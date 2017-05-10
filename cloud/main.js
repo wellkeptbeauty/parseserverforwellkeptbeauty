@@ -249,20 +249,20 @@ var expirydate=res[i].get('PExpirationDate');
 var inputDate = new Date(expirydate);
 var todaysDate = new Date();
 
-// if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
-// {
-// console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
+if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
+{
+console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
 	
-// 	//res[i].get('userName').get('userObjectId')
-//  // alert("equal")
+	//res[i].get('userName').get('userObjectId')
+ // alert("equal")
 
-// //res.success("object id is"+JSON.stringify(result));
-// }
-// else
-// {
+//res.success("object id is"+JSON.stringify(result));
+}
+else
+{
 
-// //alert(" not equal")
-// }
+//alert(" not equal")
+}
 }
  status.success("final result " + results);
         
