@@ -504,7 +504,8 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
       //query.equalTo('userId',email);
 	//console.log("inner query is",email);
 		query.equalTo('userId','karthik@betabulls.com');
-var message="Hello Beautiful! your "+request.params.toproducttitle +"expirs today.Make sure to toss it and order a new one!";
+	var title="product";
+var message="Hello Beautiful! your "+title +"expirs today.Make sure to toss it and order a new one!";
 
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
