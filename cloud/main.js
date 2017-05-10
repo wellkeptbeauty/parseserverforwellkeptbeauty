@@ -294,7 +294,7 @@ var todaysDate = new Date();
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
 console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
-	Parse.Cloud.run("alertAuthor", { email:res[i].get('PurchasedUserID').get('email'),callActive:res[i].get('PProductName')}).then(function(result) 
+	Parse.Cloud.run("iosPushforsingleuser", { email:res[i].get('PurchasedUserID').get('email'),producttitle:res[i].get('PProductName')}).then(function(result) 
 											   {
     // make sure the set the enail sent flag on the object
     console.log("result :" + JSON.stringify(result))
@@ -497,17 +497,20 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 // 	var query = new Parse.Query(Parse.User);
 // //  var message = request.params.message;
 //   query.equalTo('username', 'karthik@betabulls.com');
-	
+	 	var email=request.params.toEmail;
 	 var query = new Parse.Query(Parse.Installation);
   query.exists("deviceToken");
 	//query.equalTo('deviceToken','f4ac9341c3598e4c2e5e41ebe1f9f0d631a4fa387873e2c36449743bd2800d8a');
-	query.equalTo('userId','karthik@betabulls.com');
+	//query.equalTo('userId',email);
+	
+		query.equalTo('userId','karthik@betabulls.com');
+
 
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
   var payload = {
     alert: "testing for mail",
-	  sound: "",
+	  sound: "default",
             'content-available': 1
       // you can add other stuff here...
   };
