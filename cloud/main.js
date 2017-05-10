@@ -38,7 +38,7 @@ Parse.Cloud.define('hello', function(req, res) {
 //             console.log(theerror);
 //         }
 //     }); 
-});
+//});
 
 
 // Parse.Cloud.define("articles", function(request, response) {
