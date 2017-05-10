@@ -558,7 +558,7 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	console.log("product name is"+request.params.toProductTitle);
 		//query.equalTo('userId','karthik@betabulls.com');
 	//var title="product";
-var message="Hello Beautiful! your "+request.params.toproducttitle +"expirs today.Make sure to toss it and order a new one!";
+var message="Hello Beautiful! your "+request.params.toProductTitle+"expirs today.Make sure to toss it and order a new one!";
 
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
