@@ -236,11 +236,11 @@ Parse.Cloud.define('Allobjetcs', function(request, status)
    // res.success('ALL');
 
   var query=new Parse.Query("MyCollection");
-	Parse.Cloud.useMasterKey();
+	//Parse.Cloud.useMasterKey();
 	query.include('_p_PurchasedUserID');
    query.find().then(function (res) 
 {
-// console.log("after query is :" + JSON.stringify(res));
+ console.log("after query is :" + JSON.stringify(res));
 
 for (var i=0; i< res.length;i++){
 var expirydate=res[i].get('PExpirationDate');
@@ -251,7 +251,8 @@ var todaysDate = new Date();
 
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
-console.log("object id is"+res[i].get('_p_PurchasedUserID').get('email'));
+ console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
+
 	
 	//res[i].get('userName').get('userObjectId')
  // alert("equal")
