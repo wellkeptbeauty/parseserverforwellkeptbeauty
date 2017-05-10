@@ -493,6 +493,54 @@ Parse.Cloud.define('hello', function(req, res) {
  
 //   response.success('success');
 // });
+
+Parse.Cloud.define('Allobjetcs', function(request, status)  
+{
+   // res.success('ALL');
+
+  var query=new Parse.Query("MyCollection");
+	query.include('PurchasedUserID');
+   query.find().then(function (res) 
+{
+// console.log("after query is :" + JSON.stringify(res));
+
+for (var i=0; i< res.length;i++){
+var expirydate=res[i].get('PExpirationDate');
+ 
+var inputDate = new Date(expirydate);
+var todaysDate = new Date();
+
+if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
+{
+console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
+
+	 Parse.Cloud.run("people", { toEmail:res[i].get('PurchasedUserID').get('email'),toProductTitle:res[i].get('PProductName')}).then(function(result) 
+      {
+    // make sure the set the enail sent flag on the object
+    console.log("result :" + JSON.stringify(result))
+       }, function(error) {
+        
+     });
+	//res[i].get('userName').get('userObjectId')
+ // alert("equal")
+
+//res.success("object id is"+JSON.stringify(result));
+}
+else
+{
+
+//alert(" not equal")
+}
+}
+ status.success("final result " + results);
+        
+      
+   
+    }, function queryFailed(reason) {
+      status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
+         
+    });
+});
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	
 // 	var query = new Parse.Query(Parse.User);
@@ -504,7 +552,7 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	//query.equalTo('deviceToken','f4ac9341c3598e4c2e5e41ebe1f9f0d631a4fa387873e2c36449743bd2800d8a');
       query.equalTo('userId',email);
 	console.log("inner query is",email);
-	console.log("product name is"+request.params.toproducttitle);
+	console.log("product name is"+request.params.toProductTitle);
 		//query.equalTo('userId','karthik@betabulls.com');
 	//var title="product";
 var message="Hello Beautiful! your "+request.params.toproducttitle +"expirs today.Make sure to toss it and order a new one!";
