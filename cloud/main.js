@@ -503,6 +503,7 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	//query.equalTo('deviceToken','f4ac9341c3598e4c2e5e41ebe1f9f0d631a4fa387873e2c36449743bd2800d8a');
       query.equalTo('userId',email);
 	console.log("inner query is",email);
+	console.log("product name is"+request.params.toproducttitle);
 		//query.equalTo('userId','karthik@betabulls.com');
 	//var title="product";
 var message="Hello Beautiful! your "+request.params.toproducttitle +"expirs today.Make sure to toss it and order a new one!";
