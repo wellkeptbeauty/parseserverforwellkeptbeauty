@@ -251,7 +251,7 @@ var todaysDate = new Date();
 
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
- console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
+ console.log("object id is"+res[i].get('PurchasedUserID').get('username'));
 
 	
 	//res[i].get('userName').get('userObjectId')
