@@ -287,7 +287,7 @@ Parse.Cloud.define('Allobjetcs', function(request, status)
 
 for (var i=0; i< res.length;i++){
 var expirydate=res[i].get('PExpirationDate');
-  console.log("after query is :" res[i].get('PExpirationDate');
+  console.log("after query is :" +res[i].get('PExpirationDate');
 
 var inputDate = new Date(expirydate);
 var todaysDate = new Date();
