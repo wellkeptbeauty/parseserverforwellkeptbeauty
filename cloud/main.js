@@ -237,7 +237,7 @@ Parse.Cloud.define('Allobjetcs', function(request, status)
 
   var query=new Parse.Query("MyCollection");
 	Parse.Cloud.useMasterKey();
-	query.include('PurchasedUserID');
+	query.include('_p_PurchasedUserID');
    query.find().then(function (res) 
 {
 // console.log("after query is :" + JSON.stringify(res));
@@ -251,7 +251,7 @@ var todaysDate = new Date();
 
 if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 {
-console.log("object id is"+res[i].get('PurchasedUserID').get('email'));
+console.log("object id is"+res[i].get('_p_PurchasedUserID').get('email'));
 	
 	//res[i].get('userName').get('userObjectId')
  // alert("equal")
