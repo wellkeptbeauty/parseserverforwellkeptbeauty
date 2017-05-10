@@ -502,13 +502,14 @@ Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
   query.exists("deviceToken");
 	//query.equalTo('deviceToken','f4ac9341c3598e4c2e5e41ebe1f9f0d631a4fa387873e2c36449743bd2800d8a');
       query.equalTo('userId',email);
-	
+	console.log("inner query is",email);
 		//query.equalTo('userId','karthik@betabulls.com');
 
 
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
   var payload = {
+	  title:"Well-Kept Beauty",
     alert: "testing for mail",
 	  sound: "default",
 	    badge: 1,
