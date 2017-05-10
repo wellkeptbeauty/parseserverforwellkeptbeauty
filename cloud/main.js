@@ -3,58 +3,58 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
 
-Parse.Cloud.define("coolection", function(request, response) {
+// Parse.Cloud.define("coolection", function(request, response) {
 	
-	console.log("we are in define cloud");
-//	console.log("define request :",request);
-//	console.log("response :",response.success,response.error);
+// 	console.log("we are in define cloud");
+// //	console.log("define request :",request);
+// //	console.log("response :",response.success,response.error);
 	
-// 	var query = new Parse.Query("MyCollection");
+// // 	var query = new Parse.Query("MyCollection");
 	
-// //	query.equalTo("PCompanyName");
+// // //	query.equalTo("PCompanyName");
 
-// 	console.log("query  :",query);
-// 	query.find({
-// 		success: function(results) {
-// 	    		console.log("In Query Success :",results);
-//       		      response.success(results);
-// 	    		console.log("companyname:",results);
-//     		},
-//     		error: function(error) {
-// 	    	    console.log("companyname fail:",error);
-// 		      response.error("movie lookup failed");
-//     		}
-//   	});
+// // 	console.log("query  :",query);
+// // 	query.find({
+// // 		success: function(results) {
+// // 	    		console.log("In Query Success :",results);
+// //       		      response.success(results);
+// // 	    		console.log("companyname:",results);
+// //     		},
+// //     		error: function(error) {
+// // 	    	    console.log("companyname fail:",error);
+// // 		      response.error("movie lookup failed");
+// //     		}
+// //   	});
 
-	    var query = new Parse.Query("MyCollection");
+// 	    var query = new Parse.Query("MyCollection");
 
-    query.find({
-        success: function(results) {
-            response.success(results);
-                        console.log("success ",results);
+//     query.find({
+//         success: function(results) {
+//             response.success(results);
+//                         console.log("success ",results);
 
-        }, error: function(error) {
-            response.error("failed: %@", error);
-            console.log(theerror);
-        }
-    }); 
+//         }, error: function(error) {
+//             response.error("failed: %@", error);
+//             console.log(theerror);
+//         }
+//     }); 
 });
 
 
-Parse.Cloud.define("articles", function(request, response) {
-  var query = new Parse.Query("BeautyExperts");
-  query.equalTo("EName", "K. AJ Crimson");
-  query.find({
-    success: function(results) {
-      console.log("sucess experts is",results);
-      response.success(results);
-    },
-    error: function(error) {
-	    console.log("error at expert",error);
-      response.error("expert failed");
-    }
-  });
-});
+// Parse.Cloud.define("articles", function(request, response) {
+//   var query = new Parse.Query("BeautyExperts");
+//   query.equalTo("EName", "K. AJ Crimson");
+//   query.find({
+//     success: function(results) {
+//       console.log("sucess experts is",results);
+//       response.success(results);
+//     },
+//     error: function(error) {
+// 	    console.log("error at expert",error);
+//       response.error("expert failed");
+//     }
+//   });
+// });
 
 // Parse.Cloud.define("getUserId", function(request, response) 
 // {
@@ -103,107 +103,107 @@ Parse.Cloud.define("articles", function(request, response) {
 //         }
 //     });
 // };
-Parse.Cloud.define("test", function(request, response) {
-    var query = new Parse.Query("MyCollection");
+// Parse.Cloud.define("test", function(request, response) {
+//     var query = new Parse.Query("MyCollection");
 
-    query.find({
-        success: function(results) {
-            response.success(results);
-                        console.log(results);
+//     query.find({
+//         success: function(results) {
+//             response.success(results);
+//                         console.log(results);
 
-        }, error: function(error) {
-            response.error("user lookup failed: %@", error);
-            console.log(theerror);
-        }
-    }); 
-});
+//         }, error: function(error) {
+//             response.error("user lookup failed: %@", error);
+//             console.log(theerror);
+//         }
+//     }); 
+// });
 
-Parse.Cloud.define("Allobjects", function(request, response) {
-    var userQuery = new Parse.Query("MyCollection");
+// Parse.Cloud.define("Allobjects", function(request, response) {
+//     var userQuery = new Parse.Query("MyCollection");
    
-    userQuery.find({
-					  success: function(results) {
-              console.log("karthik sucess"+results);
-              //response.success(results.toJSON());
+//     userQuery.find({
+// 					  success: function(results) {
+//               console.log("karthik sucess"+results);
+//               //response.success(results.toJSON());
               
-              },
+//               },
 		
-					  error: function(error) {
-              console.log("karthik error"+error);
-              response.error("movie lookup failed");
-						// error is an instance of Parse.Error.
-					  }
-});
-});
+// 					  error: function(error) {
+//               console.log("karthik error"+error);
+//               response.error("movie lookup failed");
+// 						// error is an instance of Parse.Error.
+// 					  }
+// });
+// });
 
 
-Parse.Cloud.define('people', function(request, status)  
-{
-    console.log('Parse.serverURL: ' + Parse.serverURL);
+// Parse.Cloud.define('people', function(request, status)  
+// {
+//     console.log('Parse.serverURL: ' + Parse.serverURL);
 
-var GameScore = Parse.Object.extend("MyCollection");
-var query = new Parse.Query(GameScore);
+// var GameScore = Parse.Object.extend("MyCollection");
+// var query = new Parse.Query(GameScore);
 
- query.find().then(function (res) 
-    {
-     console.log("after query is ",res);
+//  query.find().then(function (res) 
+//     {
+//      console.log("after query is ",res);
       
-    for(var i=0;i<res.length;i++)
-    {
-    var id=res[i].get('PExpirationDate');
-    console.log("inner query is "+res[i].get('PExpirationDate'));
+//     for(var i=0;i<res.length;i++)
+//     {
+//     var id=res[i].get('PExpirationDate');
+//     console.log("inner query is "+res[i].get('PExpirationDate'));
    
-    }
+//     }
 
-  status.success("final result " + res);
+//   status.success("final result " + res);
   
-    }, function (error) {
-      status.error(error);
+//     }, function (error) {
+//       status.error(error);
         
-    });
- });
+//     });
+//  });
 
-Parse.Cloud.define('collection', function(request, status)  
-{
-    var GameScore = Parse.Object.extend("MyCollection");
-var query = new Parse.Query(GameScore);
-query.find({
-  success: function(results) {
-	       console.log("after query result is "+res);
+// Parse.Cloud.define('collection', function(request, status)  
+// {
+//     var GameScore = Parse.Object.extend("MyCollection");
+// var query = new Parse.Query(GameScore);
+// query.find({
+//   success: function(results) {
+// 	       console.log("after query result is "+res);
 
-    status.success("final result " + res);
+//     status.success("final result " + res);
 
-    console.log("Successfully retrieved " + results.length);
+//     console.log("Successfully retrieved " + results.length);
    
-  },
-  error: function(error) {
-    console.log("Error: " + error.code + " " + error.message);
-          status.error(error);
+//   },
+//   error: function(error) {
+//     console.log("Error: " + error.code + " " + error.message);
+//           status.error(error);
 
-  }
-});
- });
+//   }
+// });
+//  });
 
-Parse.Cloud.define("All", function(request, response) {
-  var query = new Parse.Query("MyCollection");
+// Parse.Cloud.define("All", function(request, response) {
+//   var query = new Parse.Query("MyCollection");
 	
-	query.equalTo("PCompanyName","Beauty Encounter");
+// 	query.equalTo("PCompanyName","Beauty Encounter");
  
- query.find().then(function (res) 
-     {
-	      console.log("after query is "+res);
+//  query.find().then(function (res) 
+//      {
+// 	      console.log("after query is "+res);
 
-	    console.log("results after query"+res);
+// 	    console.log("results after query"+res);
      
-      response.success(res);
-    },
-   function(error) {
-	    	    console.log("results after error"+error);
+//       response.success(res);
+//     },
+//    function(error) {
+// 	    	    console.log("results after error"+error);
 
-      response.error("movie lookup failed");
+//       response.error("movie lookup failed");
    
-  });
-});
+//   });
+// });
 
 
 // Parse.Cloud.define('people', function(request, status)  
@@ -283,7 +283,7 @@ Parse.Cloud.useMasterKey();
 	query.include('PurchasedUserID');
    query.find().then(function (res) 
 {
- console.log("after query is :" + JSON.stringify(res));
+// console.log("after query is :" + JSON.stringify(res));
 
 for (var i=0; i< res.length;i++){
 var expirydate=res[i].get('PExpirationDate');
@@ -366,38 +366,38 @@ else
 // });
 
 
-Parse.Cloud.define("alertAuthor", function(request,response){
+// Parse.Cloud.define("alertAuthor", function(request,response){
 
-var query1 = new Parse.Query(Parse.Installation);
-  query1.exists("deviceToken");
-var email=request.params.email;
-	console.log("email id is after inner"+email);
-  query1.equalTo('email', email);
-  // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
+// var query1 = new Parse.Query(Parse.Installation);
+//   query1.exists("deviceToken");
+// var email=request.params.email;
+// 	console.log("email id is after inner"+email);
+//   query1.equalTo('email', email);
+//   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
-  var payload = {
-    alert: "testing push for device",
-	  sound: 'default',
-	  badge: 1
+//   var payload = {
+//     alert: "testing push for device",
+// 	  sound: 'default',
+// 	  badge: 1
 
-      // you can add other stuff here...
-  };
+//       // you can add other stuff here...
+//   };
 
 
-  Parse.Push.send({
-      data: payload,
-      where: query1
-    }, {
-      useMasterKey: true
-    })
-    .then(function(result) {
-	  console.log("result :" + JSON.stringify(result))
-      response.success("Push Sent!");
-    }, function(error) {
-      response.error("Error while trying to send push " + error.message);
-    });
+//   Parse.Push.send({
+//       data: payload,
+//       where: query1
+//     }, {
+//       useMasterKey: true
+//     })
+//     .then(function(result) {
+// 	  console.log("result :" + JSON.stringify(result))
+//       response.success("Push Sent!");
+//     }, function(error) {
+//       response.error("Error while trying to send push " + error.message);
+//     });
 
-});
+// });
 
 
 // Parse.Cloud.define("alertAuthor", function(request,response){
@@ -438,60 +438,60 @@ var email=request.params.email;
 
 
 // })
-Parse.Cloud.define("testPush", function(request, status) {
-    Parse.Cloud.useMasterKey();
-    var installationQuery = new Parse.Query(Parse.Installation);
-   var user = new Parse.User();
-    user.id = 'BnwdN3U0iI';    
-   installationQuery.equalTo('user', user.id);  // I triple checked - this is the value of my user in the installation table.
-    Parse.Push.send({
-        where: installationQuery,
-        data: {
-            alert: "Test"
-        },
-    }, {
-        success: function() {
-            console.log("The Push Test Worked!");
-            status.success("All done with the push test!");
-        }, error: function(error) {
-            console.error("Something bad happened " + error);
-            status.error("Something bad happened during the Parse test...");
-        }
-    });
-});
-Parse.Cloud.define("iosPush", function(request, response) {
+// Parse.Cloud.define("testPush", function(request, status) {
+//     Parse.Cloud.useMasterKey();
+//     var installationQuery = new Parse.Query(Parse.Installation);
+//    var user = new Parse.User();
+//     user.id = 'BnwdN3U0iI';    
+//    installationQuery.equalTo('user', user.id);  // I triple checked - this is the value of my user in the installation table.
+//     Parse.Push.send({
+//         where: installationQuery,
+//         data: {
+//             alert: "Test"
+//         },
+//     }, {
+//         success: function() {
+//             console.log("The Push Test Worked!");
+//             status.success("All done with the push test!");
+//         }, error: function(error) {
+//             console.error("Something bad happened " + error);
+//             status.error("Something bad happened during the Parse test...");
+//         }
+//     });
+// });
+// Parse.Cloud.define("iosPush", function(request, response) {
  
-  var user = request.user;
-  var params = request.params;
-  var email = request.params.email;
- // var data = params.data
-  var payload = {
-    alert: "testing push for device",
-	  sound: 'default',
-	  badge: 1
+//   var user = request.user;
+//   var params = request.params;
+//   var email = request.params.email;
+//  // var data = params.data
+//   var payload = {
+//     alert: "testing push for device",
+// 	  sound: 'default',
+// 	  badge: 1
 
-      // you can add other stuff here...
-  };
+//       // you can add other stuff here...
+//   };
  
-  var pushQuery = new Parse.Query(Parse.Installation);
-  //pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only
-  pushQuery.equalTo("email", email)
-	//pushQuery.exists("email");
+//   var pushQuery = new Parse.Query(Parse.Installation);
+//   //pushQuery.equalTo('deviceType', 'ios'); // targeting iOS devices only
+//   pushQuery.equalTo("email", email)
+// 	//pushQuery.exists("email");
  
-  Parse.Push.send({
-    where: pushQuery, // Set our Installation query
-    data: payload
-  }, { success: function(obj) {
+//   Parse.Push.send({
+//     where: pushQuery, // Set our Installation query
+//     data: payload
+//   }, { success: function(obj) {
 	  
-	  console.log("output",obj)
-	  response.success('true');
-      console.log("#### PUSH OK");
-  }, error: function(error) {
-      console.log("#### PUSH ERROR" + error.message);
-  }, useMasterKey: true});
+// 	  console.log("output",obj)
+// 	  response.success('true');
+//       console.log("#### PUSH OK");
+//   }, error: function(error) {
+//       console.log("#### PUSH ERROR" + error.message);
+//   }, useMasterKey: true});
  
-  response.success('success');
-});
+//   response.success('success');
+// });
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	
 // 	var query = new Parse.Query(Parse.User);
