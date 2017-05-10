@@ -237,10 +237,10 @@ Parse.Cloud.define('Allobjetcs', function(request, status)
 
   var query=new Parse.Query("MyCollection");
 	//Parse.Cloud.useMasterKey();
-	query.include('_p_PurchasedUserID');
+	query.include('PurchasedUserID');
    query.find().then(function (res) 
 {
- console.log("after query is :" + JSON.stringify(res));
+ console.log("after query is collection  :" + JSON.stringify(res));
 
 for (var i=0; i< res.length;i++){
 var expirydate=res[i].get('PExpirationDate');
