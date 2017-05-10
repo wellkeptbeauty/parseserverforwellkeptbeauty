@@ -236,7 +236,7 @@ Parse.Cloud.define('Allobjetcs', function(request, status)
    // res.success('ALL');
 
   var query=new Parse.Query("MyCollection");
-//Parse.Cloud.useMasterKey();
+	Parse.Cloud.useMasterKey();
 	query.include('PurchasedUserID');
    query.find().then(function (res) 
 {
