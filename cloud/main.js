@@ -517,7 +517,7 @@ if((inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)))
 console.log("object id is"+res[i].get('PurchasedUserID').get('username'));
 //  console.log("object id is"+res[i].get('PurchasedUserID').get('username'));
 
-	 Parse.Cloud.run("people", { toEmail:res[i].get('PurchasedUserID').get('username'),toProductTitle:res[i].get('PProductName')}).then(function(result) 
+	 Parse.Cloud.run("iosPushforsingleuser", { toEmail:res[i].get('PurchasedUserID').get('username'),toProductTitle:res[i].get('PProductName')}).then(function(result) 
       {
     // make sure the set the enail sent flag on the object
     console.log("result :" + JSON.stringify(result))
