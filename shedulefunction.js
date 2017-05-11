@@ -1,4 +1,4 @@
-var objTest= require("/cloud/main.js");
+var objTest= require("./main.js");
 
     var time = new Date();
     var jobid=10;
