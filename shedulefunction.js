@@ -22,15 +22,24 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
                 var todaysDate = new Date();
                 if ((inputDate.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0))) {
                     console.log("object id is" + res[i].get('PurchasedUserID').get('username'));
-                    Parse.Cloud.run("iosPushforsingleuser", {
-                      console.log("iosPushforsingleuser is :");
-                       toEmail: res[i].get('PurchasedUserID').get('username'),
-                        toProductTitle: res[i].get('PProductName')
-                    }).then(function(result) {
-                        console.log("iosPushforsingleuser result :" + JSON.stringify(result))
-                    }, function(error) {
-                        console.log("iosPushforsingleuser error :" + JSON.stringify(error))
-                    });
+                     Parse.Cloud.run("iosPushforsingleuser", { toEmail:res[i].get('PurchasedUserID').get('username'),toProductTitle:res[i].get('PProductName')}).then(function(result) 
+      {
+    // make sure the set the enail sent flag on the object
+    console.log("result :" + JSON.stringify(result))
+       }, function(error) {
+        
+     });
+                    
+                    
+//                     Parse.Cloud.run("iosPushforsingleuser", {
+//                       console.log("iosPushforsingleuser is :");
+//                        toEmail: res[i].get('PurchasedUserID').get('username'),
+//                         toProductTitle: res[i].get('PProductName')
+//                     }).then(function(result) {
+//                         console.log("iosPushforsingleuser result :" + JSON.stringify(result))
+//                     }, function(error) {
+//                         console.log("iosPushforsingleuser error :" + JSON.stringify(error))
+//                     });
                     //res[i].get('userName').get('userObjectId')
                     // alert("equal")
 
