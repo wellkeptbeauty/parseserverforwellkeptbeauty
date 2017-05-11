@@ -60,6 +60,8 @@ else
          
     });
 }
+fetchmycollection();
+
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	
 // 	var query = new Parse.Query(Parse.User);
@@ -102,5 +104,4 @@ var message="Hello Beautiful! your "+request.params.toProductTitle+"expirs today
 
 
 });
-    fetchmycollection();
 
