@@ -4,5 +4,4 @@ var objTest= require("./main.js");
     var jobid=10;
     objTest.jobScedule(time,jobid)
 
-    console.log(time);
-    console.log(jobid);
+    console.log('Top folder time shedule 'time);
