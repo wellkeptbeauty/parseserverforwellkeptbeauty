@@ -11,7 +11,7 @@ Parse.initialize('8PsWDzjb8gZN8I2ytJCKQiA4wP8hiL5jRt4hecwI', 'XlEdqca7cbDXkjU47Q
 Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
 //Parse.Cloud.useMasterKey();
 
-function fetchmycollection() {
+// function fetchmycollection() {
 
         var query = new Parse.Query("MyCollection");
         query.include('PurchasedUserID');
@@ -54,8 +54,8 @@ function fetchmycollection() {
             status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
 
         });
-    }
-    fetchmycollection();
+    
+    //fetchmycollection();
 
     Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 
