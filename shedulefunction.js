@@ -1,10 +1,9 @@
 
     var time = new Date();
-    console.log('Top folder time shedule ',time);
-var http = require('http');
+    console.log('Shedule Job ',time);
 
+// var http = require('http');
 // console.log('Creating a simple HTTP request');
-
 // http.get("http://api.ipify.org?format=json", function(res) {
 //   var body = ''; // Will contain the final response
 //   // Received data is a buffer.
