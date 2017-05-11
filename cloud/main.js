@@ -2,6 +2,9 @@
 Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
+Parse.Cloud.define('shedulehello', function(req, res) {
+  res.success('Hi');
+});
 
 // Parse.Cloud.define("coolection", function(request, response) {
 	
