@@ -1,6 +1,6 @@
 
     var time = new Date();
-    console.log('Shedule Job ',time);
+    console.log('This is schedule job log ',time);
 
 // var http = require('http');
 // console.log('Creating a simple HTTP request');
