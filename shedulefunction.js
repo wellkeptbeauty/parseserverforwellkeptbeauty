@@ -19,6 +19,41 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
                 var todaysDate = new Date();
                 if ((inputDate.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0))) {
                     console.log("object id is" + res[i].get('PurchasedUserID').get('username'));
+                    
+            
+	 	var email=res[i].get('PurchasedUserID').get('username');
+	 var query = new Parse.Query(Parse.Installation);
+  query.exists("deviceToken");
+      query.equalTo('userId',email);
+	console.log("inner query is",email);
+	console.log("product name is"+res[i].get('PProductName'));
+	
+var message="Hello Beautiful! your "+res[i].get('PProductName')+"expirs today.Make sure to toss it and order a new one!";
+
+  // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
+
+  var payload = {
+	  title:"Well-Kept Beauty",
+    alert: message,
+	  sound: "default",
+	    badge: 1,
+            'content-available': 1
+      // you can add other stuff here...
+  };
+
+
+  Parse.Push.send({
+      data: payload,
+      where: query
+    }, {
+      useMasterKey: true
+    })
+    .then(function() {
+      response.success("Push Sent!");
+    }, function(error) {
+      response.error("Error while trying to send push " + error.message);
+    });
+                    
 
                        console.log("equal");
                     //res.success("object id is"+JSON.stringify(result));
