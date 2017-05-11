@@ -2,6 +2,10 @@
     var time = new Date();
     console.log('This is schedule job log ',time);
 
+function mycoolection(){
+	console.log("hai from scheduler");
+}
+mycoolection();
 function fetchmycollection(){
 {
    // res.success('ALL');
