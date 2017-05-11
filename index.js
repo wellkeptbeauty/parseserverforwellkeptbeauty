@@ -60,6 +60,17 @@ app.get('/test', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
+app.get('/shedule', function(req, res) {
+  var objTest= require("./main.js");
+
+    var time = new Date();
+    var jobid=10;
+    objTest.jobScedule(time,jobid)
+
+    console.log('shedule time',time);
+  res.status(200).send('test shedule job');
+});
+
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
