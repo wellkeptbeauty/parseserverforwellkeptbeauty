@@ -6,8 +6,8 @@ function mycoolection(){
 	console.log("hai from scheduler");
 }
 mycoolection();
-function fetchmycollection(){
-{
+// function fetchmycollection(){
+// {
    // res.success('ALL');
 
   var query=new Parse.Query("MyCollection");
@@ -53,7 +53,7 @@ else
       status.error("query unsuccessful, length of result " + result.length + ", error:" + error.code + " " + error.message);
          
     });
-}
+//}
 Parse.Cloud.define("iosPushforsingleuser", function(request, response) {
 	
 // 	var query = new Parse.Query(Parse.User);
