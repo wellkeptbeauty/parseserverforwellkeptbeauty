@@ -8,8 +8,9 @@ function mycoolection(){
 mycoolection();
 
 var Parse = require('parse/node');
-Parse.initialize('8PsWDzjb8gZN8I2ytJCKQiA4wP8hiL5jRt4hecwI');
-Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse';
+Parse.initialize('8PsWDzjb8gZN8I2ytJCKQiA4wP8hiL5jRt4hecwI', 'XlEdqca7cbDXkjU47QUJsjzFWY2K50jWfpDWTSkh','41tclTmcekJEnOzBcHTULQptqfndEMiAtN6VeGin');
+Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
+//Parse.Cloud.useMasterKey();
 
 function fetchmycollection(){
 {
