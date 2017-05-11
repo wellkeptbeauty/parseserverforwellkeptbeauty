@@ -1,6 +1,6 @@
 
     var time = new Date();
-    console.log('This is schedule job log ',time);
+    console.log('This is new schedule job log ',time);
 
 function mycoolection(){
 	console.log("hai from scheduler");
