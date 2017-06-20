@@ -64,11 +64,11 @@ var message="Hello Beautiful! your "+res[i].get('PProductName')+"expirs today. M
                  var expirydatee = res[i].get('PExpirationDate');
                 
                 
-inputDate.setDate(expirydatee.getDate()-7);
+expirydatee.setDate(expirydatee.getDate()-7);
 
 var todaysDatee = new Date();
 
-if((inputDate.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
+if((expirydatee.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
 {
 
                     console.log("object id in befor 7 days is" + res[i].get('PurchasedUserID').get('username'));
