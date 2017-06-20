@@ -44,7 +44,7 @@ if((inputDate.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
 	console.log("inner query is",email);
 	console.log("product name is"+res[i].get('PProductName'));
 	
-var message="Hello Beautiful! your "+res[i].get('PProductName')+"expirs today. Make sure to toss it and order a new one!";
+var message="Hello Beautiful! your "+res[i].get('PProductName')+" is going to expire within a week. Be sure to order a new one early today!";
 
   // here you can add other conditions e.g. to send a push to sepcific users or channel etc.
 
