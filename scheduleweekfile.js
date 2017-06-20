@@ -25,7 +25,7 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
                 
 //inputDate.setDate(inputDate.getDate()-7);
 
- console.log("expirydatee is "+expirydatee)		    
+ console.log("expirydatee is "+expirydate)		    
 var todaysDatee = new Date();
 
 if((inputDate.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
