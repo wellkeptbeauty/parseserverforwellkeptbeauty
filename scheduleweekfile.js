@@ -23,12 +23,12 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
                  
                 
                 
-//inputDate.setDate(inputDate.getDate()-7);
+var testdate=inputDate.setDate(inputDate.getDate()-7);
 
- console.log("expirydatee is "+expirydate)		    
+ console.log("expirydatee is "+testdate)		    
 var todaysDatee = new Date();
 
-if((inputDate.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
+if((testdate.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
 {
 
                     console.log("object id in befor 7 days is" + res[i].get('PurchasedUserID').get('username'));
