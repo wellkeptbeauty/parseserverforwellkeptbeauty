@@ -3,7 +3,7 @@ var time = new Date();
 console.log('This is new schedule job log ', time);
 
 function mycoolection() {
-    console.log("hai from scheduler");
+    console.log("hai from secheduleweek");
 }
 mycoolection();
 var Parse = require('parse/node');
@@ -13,7 +13,7 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
  var query = new Parse.Query("MyCollection");
         query.include('PurchasedUserID');
         query.find().then(function(res) {
-            console.log("after query is :" + JSON.stringify(res));
+            console.log("after query  in week is :" + JSON.stringify(res));
             for (var i = 0; i < res.length; i++) {
                 var expirydate = res[i].get('PExpirationDate');
                 var inputDate = new Date(expirydate);
