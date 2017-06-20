@@ -16,6 +16,7 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
             console.log("after query  in week is :" + JSON.stringify(res));
             for (var i = 0; i < res.length; i++) {
                 var expirydate = res[i].get('PExpirationDate');
+		    console.log("Date checked"+expirydate)
                 var inputDate = new Date(expirydate);
                 
                
@@ -25,11 +26,13 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
                 
 inputDate.setDate(inputDate.getDate()-7);
 
- console.log("expirydatee is "+testdate)		    
+ console.log("expirydatee is "+inputDate)		    
 var todaysDatee = new Date();
+		    console.log("Date checked 123"+inputDate.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0))
 
 if((inputDate.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
 {
+	  console.log("Date checked true or not")
 
                     console.log("object id in befor 7 days is" + res[i].get('PurchasedUserID').get('username'));
                     
