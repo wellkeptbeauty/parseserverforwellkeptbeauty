@@ -66,6 +66,7 @@ var message="Hello Beautiful! your "+res[i].get('PProductName')+"expirs today. M
                 
 expirydatee.setDate(expirydatee.getDate()-7);
 
+ console.log("expirydatee is "+expirydatee)		    
 var todaysDatee = new Date();
 
 if((expirydatee.setHours(0,0,0,0) == todaysDatee.setHours(0,0,0,0)))
