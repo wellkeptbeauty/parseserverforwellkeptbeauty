@@ -80,7 +80,7 @@ var message="Hello Beautiful! your "+res[i].get('PProductName')+" is going to ex
 else
 {
 
-                        console.log("iosPushforsingleuser not equal in weekbefore expiry date:")
+                        console.log("iosPush forsingleuser not equal in weekbefore expiry date:")
 }
                 
                 
