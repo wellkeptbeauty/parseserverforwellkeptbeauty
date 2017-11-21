@@ -35,6 +35,43 @@ var api = new ParseServer({
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   },
 //    push: JSON.parse(process.env.PARSE_SERVER_PUSH || "{}"),
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   liveQuery: {
+    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+  },
+  
+  verifyUserEmails: true,
+  publicServerURL: 'https://wellkeptbeauty.herokuapp.com/parse',
+ // appName: 'Parse App',
+  appName: 'WellkeptBeauty App',
+  emailAdapter: {
+ module: 'parse-server-simple-mailgun-adapter',
+ options: {
+ fromAddress: process.env.EMAIL_FROM || "noreply@wellkeptbeauty.com",
+ domain: process.env.MAILGUN_DOMAIN || "stampvity.betabulls.net",
+ apiKey: process.env.MAILGUN_API_KEY || "key-b6fe80ed8ae21e1901fea443850c22d0",
+ // Verification email subject
+ verificationSubject: 'Please verify your e-mail for wellkeptbeauty',
+ // Verification email body
+ verificationBody: 'Hi,\n\nYou are being asked to confirm the e-mail address %email% with %appname%\n\nClick here to confirm it:\n%link%',
+
+// Password reset email subject
+ passwordResetSubject: 'Password Reset Request for wellkeptbeauty',
+ // Password reset email body
+ passwordResetBody: 'Hi,\n\nYou requested a password reset for %appname%.\n\nClick here to reset it:\n%link%',
+ //OPTIONAL (will send HTML version of email):
+ passwordResetBodyHTML: "<!--DOCTYPE html>........"
+ }
+ }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
