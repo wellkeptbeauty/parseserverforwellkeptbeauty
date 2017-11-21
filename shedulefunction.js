@@ -16,7 +16,7 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
             for (var i = 0; i < res.length; i++) {
                 var expirydate = res[i].get('PExpirationDate');
 		    
-		    console.log("expirydate is from collection "+expirydatee);
+		    console.log("expirydate is from collection "+expirydate);
                 var inputDate = new Date(expirydate);
 		     console.log("inputDate is "+inputDate);
                 var todaysDate = new Date();
