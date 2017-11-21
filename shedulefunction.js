@@ -12,7 +12,7 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
  var query = new Parse.Query("MyCollection");
         query.include('PurchasedUserID');
         query.find().then(function(res) {
-            console.log("after query is :" + JSON.stringify(res));
+          //  console.log("after query is :" + JSON.stringify(res));
             for (var i = 0; i < res.length; i++) {
                 var expirydate = res[i].get('PExpirationDate');
 		    
