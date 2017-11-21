@@ -15,8 +15,13 @@ Parse.serverURL = 'https://wellkeptbeauty.herokuapp.com/parse/';
             console.log("after query is :" + JSON.stringify(res));
             for (var i = 0; i < res.length; i++) {
                 var expirydate = res[i].get('PExpirationDate');
+		    
+		    console.log("expirydate is from collection "+expirydatee);
                 var inputDate = new Date(expirydate);
+		     console.log("inputDate is "+inputDate);
                 var todaysDate = new Date();
+		    		     console.log("todaysDate is  "+todaysDate);
+
                 if ((inputDate.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0))) {
                     console.log("object id is" + res[i].get('PurchasedUserID').get('username'));
                     
