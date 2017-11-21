@@ -55,6 +55,8 @@ var message="Hello Beautiful! your "+res[i].get('PProductName')+"expirs today. M
     })
     .then(function() {
       response.success("Push Sent!");
+	  console.log("Push Sent!");
+	  
     }, function(error) {
       response.error("Error while trying to send push " + error.message);
     });
